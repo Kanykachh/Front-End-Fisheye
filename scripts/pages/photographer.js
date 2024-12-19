@@ -1,11 +1,4 @@
-// Fonction pour récupérer l'ID du photographe depuis l'URL
-function getPhotographerId() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-  return id ? parseInt(id, 10) : null; // Convertit en entier et gère un ID manquant
-}
-
-// Fonction pour récupérer les données du photographe à partir du fichier JSON
+// Fonction pour récupérer les données des photographes
 async function getPhotographerById(id) {
   if (!id) {
     console.error("ID de photographe non fourni.");
@@ -16,13 +9,19 @@ async function getPhotographerById(id) {
     if (!response.ok) throw new Error("Erreur réseau lors du chargement des données.");
     const data = await response.json();
     const photographer = data.photographers.find((photographer) => photographer.id === id);
-    const medias = data.media.filter((m) => photographer.id === m.photographerId);
-    photographer["media"] = medias;
+    photographer.media = data.media.filter((m) => photographer.id === m.photographerId);
     return photographer;
   } catch (error) {
     console.error("Erreur lors de la récupération des données du photographe :", error);
     return null;
   }
+}
+
+// Fonction pour récupérer l'ID du photographe depuis l'URL
+function getPhotographerId() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  return id ? parseInt(id, 10) : null;
 }
 
 // Fonction pour afficher les informations du photographe
@@ -32,7 +31,6 @@ async function displayPhotographer(photographerData) {
     photographerSection.innerHTML = ""; // Vide le contenu actuel
     const photographerModel = photographerTemplate(photographerData);
 
-    // Vérifie que `getPhotographerHeaderDOM()` crée bien un élément indépendant
     const photographerHeaderDOM = photographerModel.getPhotographerHeaderDOM();
     if (photographerHeaderDOM) {
       photographerSection.appendChild(photographerHeaderDOM);
@@ -41,17 +39,18 @@ async function displayPhotographer(photographerData) {
       if (dailyRateElement) {
         dailyRateElement.textContent = `${photographerData.price}€ / jour`;
       }
-      return photographerData; // Retourne les données pour les utiliser dans `init()`
+      return photographerData;
     } else {
       console.error("Erreur : `getPhotographerHeaderDOM` n'a pas retourné un élément valide.");
     }
   } else {
-    console.log(`Aucun photographe trouvé pour l'ID : ${photographerId}`);
+    console.log(`Aucun photographe trouvé pour l'ID : ${getPhotographerId()}`);
   }
   return null;
 }
 
-let mediaArray = [];
+// Variable pour stocker les médias localement (pas globale)
+let photographerMediaArray = [];
 
 // Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
@@ -59,7 +58,7 @@ async function displayPhotographerMedia(photographerMedia) {
     console.error("Aucun média trouvé pour ce photographe.");
     return;
   }
-  mediaArray = photographerMedia;
+  photographerMediaArray = photographerMedia;
   const mediaContainer = document.querySelector(".photographer-media");
   mediaContainer.innerHTML = "";
 
@@ -75,39 +74,33 @@ async function displayPhotographerMedia(photographerMedia) {
   });
 
   console.log(`Médias affichés : ${photographerMedia.length}`);
-  updateTotalLikes();
+  localUpdateTotalLikes();
 }
 
 // Fonction pour mettre à jour le total des likes
-function updateTotalLikes() {
-  const totalLikes = mediaArray.reduce((sum, media) => sum + media.likes, 0);
+function localUpdateTotalLikes() {
+  const totalLikes = photographerMediaArray.reduce((sum, media) => sum + media.likes, 0);
   const totalLikesElement = document.querySelector(".total-likes");
   if (totalLikesElement) {
     totalLikesElement.textContent = totalLikes;
   }
 }
 
-
-
 // Mappage des critères de tri à leurs fonctions de comparaison
 const sortFunctions = {
-  popularity: (a, b) => b.likes - a.likes, // Tri décroissant par likes
-  date: (a, b) => new Date(b.date) - new Date(a.date), // Tri décroissant par date
-  title: (a, b) => a.title.localeCompare(b.title), // Tri alphabétique
+  popularity: (a, b) => b.likes - a.likes,
+  date: (a, b) => new Date(b.date) - new Date(a.date),
+  title: (a, b) => a.title.localeCompare(b.title),
 };
 
-// Fonction de tri
-function sortMedia(criteria) {
+// Fonction pour trier les médias
+function sortPhotographerMedia(criteria) {
   if (!sortFunctions[criteria]) {
     console.error("Critère de tri non valide :", criteria);
     return;
   }
-
-  // Trie le tableau des médias avec la fonction appropriée
-  mediaArray.sort(sortFunctions[criteria]);
-
-  // Réaffiche les médias triés
-  displayPhotographerMedia(mediaArray);
+  photographerMediaArray.sort(sortFunctions[criteria]);
+  displayPhotographerMedia(photographerMediaArray);
 }
 
 // Fonction d'initialisation
@@ -117,11 +110,15 @@ async function init() {
   if (photographerData) {
     await displayPhotographer(photographerData);
     await displayPhotographerMedia(photographerData.media);
-    sortMedia("popularity"); // Tri initial par popularité
+    sortPhotographerMedia("popularity");
   } else {
     console.error("Photographe non trouvé.");
   }
-}
+};
 
+// Exposez les fonctions globalement
+window.localUpdateTotalLikes = localUpdateTotalLikes;
+window.sortPhotographerMedia = sortPhotographerMedia;
+window.photographerMediaArray = photographerMediaArray;
 // Appel de la fonction d'initialisation
 init();

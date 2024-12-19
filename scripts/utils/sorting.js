@@ -17,11 +17,8 @@ function toggleDropdown() {
 // Fonction pour mettre à jour l'option sélectionnée
 function updateSelectedOption(option) {
   const selectedValue = option.dataset.value;
-
-  // Met à jour le texte du bouton
+1
   selectedOptionSpan.textContent = option.textContent;
-
-  // Met à jour les états ARIA
   options.forEach((opt) => {
     opt.classList.remove("selected");
     opt.setAttribute("aria-selected", "false");
@@ -29,8 +26,7 @@ function updateSelectedOption(option) {
   option.classList.add("selected");
   option.setAttribute("aria-selected", "true");
 
-  // Applique le tri
-  sortMedia(selectedValue);
+  window.sortPhotographerMedia(selectedValue);
 }
 
 // Gérer les événements du bouton de tri
