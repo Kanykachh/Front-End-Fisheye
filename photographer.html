@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr">
+  <head>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye - photographe </title>
+  </head>
+  <body>
+    <header>
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+    </header>
+    <main id="main" aria-label="Contenu principal">
+      <div class="photograph-header">
+       
+      </div>
+      
+      <div class="bground"></div>
+      <div id="contact_modal" class="modal" >
+        <div class="modal_content">
+            <header>
+                <div class="header-modal"><h2>Contactez-moi<br><span id="photographer_name"></span></h2>
+                </div>
+                <button class="close_button" aria-label="Fermer la modale">X</button>
+            </header>
+            <form id="contact_form">
+                <div>
+                    <label for="first_name">Prénom</label>
+                    <input type="text" id="first_name" name="first_name" required />
+                </div>
+                <div>
+                    <label for="last_name">Nom</label>
+                    <input type="text" id="last_name" name="last_name" required />
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div>
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button class="button-console" type="submit">Envoyer</button>
+            </form>
+        </div>
+      </div> 
+      <div class="sorting-container">
+        <label for="sort-button" class="sorting-label">Trier par</label>
+        <div class="dropdown">
+            <button id="sort-button" class="dropbtn" aria-haspopup="true" aria-expanded="false">
+                Popularité
+            </button>
+            <div id="sort-options" class="dropdown-content" role="menu">
+                <a href="#" class="custom-option" data-value="popularity" role="menuitem" aria-selected="true">Popularité</a>
+                <a href="#" class="custom-option" data-value="date" role="menuitem" aria-selected="false">Date</a>
+                <a href="#" class="custom-option" data-value="title" role="menuitem" aria-selected="false">Titre</a>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+      <div class="photographer-media"></div>
+    
+      <div class="total-likes-container">
+        <span class="total-likes">0</span> ♥
+        <span class="daily-rate"></span>
+    </div>
+    </main>
+  <!-- Lightbox Structure -->
+  <div class="bground-light"></div>
+<div id="light_box" class="lightbox" role="dialog" aria-hidden="true">
+  <div class="lightbox-content">
+      <button class="close-button" aria-label="Fermer la Lightbox">X</button>
+      <button class="prev-button" aria-label="Image précédente">&#10094;</button>
+      <div id="lightbox-media" class="lightbox-media">
+          <!-- Les images ou vidéos seront ajoutées dynamiquement ici -->
+      </div>
+      <button class="next-button" aria-label="Image suivante">&#10095;</button>
+  </div>
+</div>
+
+
+    <script src="./scripts/templates/photographer.js"></script>
+    <script src="./scripts/utils/lightbox.js"></script>
+    <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/utils/sorting.js"></script>
+    <script src="./scripts/pages/photographer.js"></script>
+
+  </body>
+</html>
