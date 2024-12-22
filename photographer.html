@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" xml:lang="fr">
   <head>
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
     </header>
     <main id="main" aria-label="Contenu principal">
       <div class="photograph-header">
@@ -47,16 +47,15 @@
       </div> 
       <div class="sorting-container">
         <label for="sort-button" class="sorting-label">Trier par</label>
-        <div class="custom-select-wrapper">
-          <button id="sort-button" class="custom-select" aria-expanded="false" aria-controls="sort-options">
-            <span class="selected-option">Popularité</span>
-            <span class="arrow">▼</span>
-        </button>
-        <ul id="sort-options" class="custom-options" role="listbox" hidden>
-            <li role="option" data-value="popularity" class="custom-option selected" aria-selected="true">Popularité</li>
-            <li role="option" data-value="date" class="custom-option" aria-selected="false">Date</li>
-            <li role="option" data-value="title" class="custom-option" aria-selected="false">Titre</li>
-        </ul>
+        <div class="dropdown">
+            <button id="sort-button" class="dropbtn" aria-haspopup="true" aria-expanded="false">
+                Popularité
+            </button>
+            <div id="sort-options" class="dropdown-content" role="menu">
+                <a href="#" class="custom-option" data-value="popularity" role="menuitem" aria-selected="true">Popularité</a>
+                <a href="#" class="custom-option" data-value="date" role="menuitem" aria-selected="false">Date</a>
+                <a href="#" class="custom-option" data-value="title" role="menuitem" aria-selected="false">Titre</a>
+            </div>
         </div>
     </div>
     

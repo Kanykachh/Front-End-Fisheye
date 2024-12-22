@@ -417,56 +417,64 @@ form textarea {
     color: white;
 }
 
-/* Liste déroulante des options */
-.custom-options {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    right: 0;
-    background-color: #901C1C;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-   
+.sorting-container {
+    margin: 20px 2rem;
+    display: flex;
+    align-items: center;
 }
 
-.custom-option {
-    
+.sorting-label {
+    font-size: 15px;
+    margin-right: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+.dropbtn {
+    background-color: #901C1C;
+    color: white;
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    border: none;
     cursor: pointer;
-    border: solid;
-    border-bottom: white;
-    
-    
-    
+    border-radius: 5px;
+    outline: none;
 }
 
-.custom-option:hover,
-.custom-option.selected {
+.dropbtn:hover, .dropbtn:focus {
     background-color: #B40000;
 }
 
-[aria-expanded="true"] + .custom-options {
-    display: block;
-}
-
-[aria-expanded="false"] + .custom-options {
+.dropdown-content {
     display: none;
-}
-.custom-option:focus {
-    outline: 2px solid #D3573C; /* Met en évidence l'élément en focus */
-    background-color: #B40000;
-    color: white;
+    position: absolute;
+    background-color: #901C1C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
 }
 
-.custom-option[aria-selected="true"] {
+.dropdown-content .custom-option {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content .custom-option:hover,
+.dropdown-content .custom-option:focus {
     background-color: #B40000;
+    outline: 2px solid white;
+}
+
+.dropdown-content .custom-option[aria-selected="true"] {
+    background-color: #D3573C;
     font-weight: bold;
+}
+
+.show {
+    display: block;
 }
