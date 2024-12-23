@@ -33,7 +33,7 @@
   function photographerTemplate(data) {
     const { id, name, city, country, tagline, price } = data;
     const formattedName = name.replace(/[\s-]+/g, "");
-    const picture = `../assets/images/photographersid/${formattedName}.jpg`;
+    const picture = `assets/images/photographersid/${formattedName}.jpg`;
 
     function getUserCardDOM() {
       const article = document.createElement("article");
@@ -82,7 +82,7 @@
 
   function mediaTemplate(mediaData, index) {
     const { title, likes, photographerId, image, video } = mediaData;
-    const mediaPath = `../assets/images/media/${photographerId}/${image || video}`;
+    const mediaPath = `assets/images/media/${photographerId}/${image || video}`;
     const isImage = !!image;
 
     const article = document.createElement("article");
