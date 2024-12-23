@@ -5,7 +5,7 @@ async function getPhotographerById(id) {
     return null;
   }
   try {
-    const response = await fetch("../data/photographers.json");
+    const response = await fetch("./data/photographers.json");
     if (!response.ok) throw new Error("Erreur réseau lors du chargement des données.");
     const data = await response.json();
     const photographer = data.photographers.find((photographer) => photographer.id === id);
