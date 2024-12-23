@@ -15,7 +15,7 @@
 
     currentMediaArray = array; // Mettre à jour le tableau actuel
     const mediaData = array[index];
-    const mediaPath = `../assets/images/media/${mediaData.photographerId}/${mediaData.image || mediaData.video}`;
+    const mediaPath = `assets/images/media/${mediaData.photographerId}/${mediaData.image || mediaData.video}`;
     const mediaElement = mediaData.image
       ? createImageElement(mediaPath, mediaData.title, ["lightbox-image"])
       : createVideoElement(mediaPath, ["lightbox-video"]);
