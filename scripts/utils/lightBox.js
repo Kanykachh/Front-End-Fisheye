@@ -23,6 +23,8 @@
     const titleElement = document.createElement("p");
     titleElement.textContent = mediaData.title;
     titleElement.classList.add("lightbox-title");
+      // Ajout des attributs ARIA pour lecteurs d'écran
+    mediaElement.setAttribute("aria-label", `Affichage de ${mediaData.title}, média ${index + 1} sur ${array.length}`);
     lightBoxMedia.appendChild(mediaElement);
     lightBoxMedia.appendChild(titleElement);
 

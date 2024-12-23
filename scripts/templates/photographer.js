@@ -88,6 +88,8 @@
     const article = document.createElement("article");
     article.classList.add("media-article");
     article.setAttribute("data-index", index);
+    article.setAttribute("tabindex", "0");
+    article.setAttribute("aria-label", `Média intitulé "${title}"`); 
 
     const mediaElement = isImage
       ? createImageElement(mediaPath, title, ["media-image"])
@@ -118,6 +120,13 @@
         mediaData.likes += 1;
         likesElement.textContent = mediaData.likes;
         window.localUpdateTotalLikes();
+      }
+    });
+
+    article.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        displayLightBox(index, photographerMediaArray);
       }
     });
     
