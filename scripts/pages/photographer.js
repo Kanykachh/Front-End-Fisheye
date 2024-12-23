@@ -83,6 +83,9 @@ function localUpdateTotalLikes() {
   const totalLikesElement = document.querySelector(".total-likes");
   if (totalLikesElement) {
     totalLikesElement.textContent = totalLikes;
+    totalLikesElement.setAttribute("aria-label", `Le total des likes est maintenant ${totalLikes}`);
+    totalLikesElement.setAttribute("aria-live", "polite"); 
+    totalLikesElement.setAttribute("role", "status");
   }
 }
 

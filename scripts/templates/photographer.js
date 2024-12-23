@@ -97,6 +97,7 @@
 
     const titleElement = createTextElement("h3", title, ["media-title"]);
     const likesElement = createTextElement("p", `${likes}`, ["media-likes"]);
+    likesElement.setAttribute("aria-live", "polite");
     const heartIcon = createSpanElement("♥", ["heart-icon"]);
     heartIcon.setAttribute("role", "button");
     heartIcon.setAttribute("aria-label", `Ajouter un like à ${title}`);
@@ -110,15 +111,18 @@
         liked = true;
         mediaData.likes += 1;
         likesElement.textContent = mediaData.likes;
+        heartIcon.setAttribute("aria-label", `Vous avez ajouté un like à "${title}"`);
         window.localUpdateTotalLikes(); // Utilise la fonction locale
       }
     });
 
     heartIcon.addEventListener("keydown", (event) => {
       if ((event.key === "Enter" || event.key === " ") && !liked) {
+        event.preventDefault();
         liked = true;
         mediaData.likes += 1;
         likesElement.textContent = mediaData.likes;
+        heartIcon.setAttribute("aria-label", `Vous avez ajouté un like à "${title}"`);
         window.localUpdateTotalLikes();
       }
     });
