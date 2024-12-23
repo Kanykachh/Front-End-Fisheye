@@ -33,7 +33,6 @@
 
     currentIndex = index;
   }
-
   function closeLightBox() {
     const lightBox = document.getElementById("light_box");
     const backGroundLight = document.querySelector(".bground-light");
