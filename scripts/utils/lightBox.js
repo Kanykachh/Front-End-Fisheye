@@ -19,6 +19,7 @@
     const mediaElement = mediaData.image
       ? createImageElement(mediaPath, mediaData.title, ["lightbox-image"])
       : createVideoElement(mediaPath, ["lightbox-video"]);
+      mediaElement.setAttribute("tabindex", "0");
 
     const titleElement = document.createElement("p");
     titleElement.textContent = mediaData.title;
@@ -27,6 +28,7 @@
     mediaElement.setAttribute("aria-label", `Affichage de ${mediaData.title}, média ${index + 1} sur ${array.length}`);
     lightBoxMedia.appendChild(mediaElement);
     lightBoxMedia.appendChild(titleElement);
+    mediaElement.focus();
 
     document.querySelector(".prev-button").onclick = () => navigateLightBox(-1);
     document.querySelector(".next-button").onclick = () => navigateLightBox(1);
@@ -71,6 +73,13 @@
       case "Escape":
         closeLightBox();
         break;
+        case "Tab":
+      const mediaElement = document.querySelector("#lightbox-media img, #lightbox-media video");
+      if (document.activeElement === mediaElement) {
+        event.preventDefault();
+        document.querySelector(".close-button").focus();
+      }
+      break;
     }
   });
 
