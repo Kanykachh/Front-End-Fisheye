@@ -15,15 +15,18 @@ function toggleDropdown() {
 // Fonction pour mettre à jour l'option sélectionnée
 function updateSelectedOption(option) {
     const selectedValue = option.dataset.value;
-    sortButton.textContent = option.textContent;
 
+   
     options.forEach((opt) => {
+        opt.classList.remove("selected");
         opt.setAttribute("aria-selected", "false");
     });
+
+    option.classList.add("selected");
     option.setAttribute("aria-selected", "true");
 
+    
     window.sortPhotographerMedia(selectedValue);
-    toggleDropdown();
 }
 
 // Gérer les interactions clavier sur les options

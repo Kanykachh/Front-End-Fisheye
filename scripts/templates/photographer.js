@@ -130,7 +130,7 @@
     article.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        displayLightBox(index, photographerMediaArray);
+        displayLightBox(index, window.photographerMediaArray);
       }
     });
     
