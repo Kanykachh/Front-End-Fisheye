@@ -64,22 +64,26 @@
     if (lightBox.style.display !== "flex") return;
 
     switch (event.key) {
-      case "ArrowLeft":
+      case "ArrowLeft": {
         navigateLightBox(-1);
         break;
-      case "ArrowRight":
+      }
+      case "ArrowRight": {
         navigateLightBox(1);
         break;
-      case "Escape":
+      }
+      case "Escape": {
         closeLightBox();
         break;
-        case "Tab":
+      }
+        case "Tab": {
       const mediaElement = document.querySelector("#lightbox-media img, #lightbox-media video");
       if (document.activeElement === mediaElement) {
         event.preventDefault();
         document.querySelector(".close-button").focus();
       }
       break;
+    }
     }
   });
 

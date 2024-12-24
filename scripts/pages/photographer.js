@@ -51,6 +51,7 @@ async function displayPhotographer(photographerData) {
 
 // Variable pour stocker les médias localement (pas globale)
 let photographerMediaArray = [];
+window.photographerMediaArray = photographerMediaArray;
 
 // Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
@@ -122,6 +123,6 @@ async function init() {
 // Exposez les fonctions globalement
 window.localUpdateTotalLikes = localUpdateTotalLikes;
 window.sortPhotographerMedia = sortPhotographerMedia;
-window.photographerMediaArray = photographerMediaArray;
+
 // Appel de la fonction d'initialisation
 init();
