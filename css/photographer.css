@@ -104,7 +104,7 @@ main {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     overflow-y: auto; /* Permet un défilement vertical si le contenu dépasse */
-    margin-top: none;
+    
 }
 
 .modal {
@@ -119,13 +119,13 @@ main {
     padding: 25px;
     margin: auto;
     overflow-y: auto; /* Permet un défilement vertical si nécessaire */
-    padding-top: none;
+   
 }
 .modal_content{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    margin-top: none;
+   
   
 }
 .close_button {
@@ -416,7 +416,7 @@ form textarea {
 /* Liste déroulante */
 .custom-options {
     display: none;
-    position: absolute;
+   
     background-color: #901C1C;
     width: 160px; /* Largeur égale au bouton */
     border-radius: 5px;
