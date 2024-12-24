@@ -48,17 +48,19 @@
       </div> 
       <div class="sorting-container">
         <label for="sort-button" class="sorting-label">Trier par</label>
-        <button id="sort-button" class="custom-select" aria-expanded="false" aria-controls="sort-options">
-            <span class="selected-option">Popularité</span>
-            <span class="arrow">▼</span>
-        </button>
-        <ul id="sort-options" class="custom-options" role="listbox">
-            <li class="custom-option" data-value="popularity" role="option" aria-selected="true">Popularité</li>
-            <li class="custom-option" data-value="date" role="option" aria-selected="false">Date</li>
-            <li class="custom-option" data-value="title" role="option" aria-selected="false">Titre</li>
-        </ul>
-        
+        <div class="custom-select-wrapper">
+            <button id="sort-button" class="custom-select" aria-expanded="false" aria-controls="sort-options">
+                <span class="selected-option">Popularité</span>
+                <span class="arrow">▼</span>
+            </button>
+            <ul id="sort-options" class="custom-options" role="listbox">
+                <li class="custom-option" data-value="popularity" role="option" aria-selected="true">Popularité</li>
+                <li class="custom-option" data-value="date" role="option" aria-selected="false">Date</li>
+                <li class="custom-option" data-value="title" role="option" aria-selected="false">Titre</li>
+            </ul>
+        </div>
     </div>
+    
     
     
 
