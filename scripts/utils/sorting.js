@@ -67,10 +67,19 @@ options.forEach((option) => {
 // Gérer le clic sur le bouton de tri
 sortButton.addEventListener("click", toggleDropdown);
 
-// Fermer le menu si on clique à l'extérieur
 document.addEventListener("click", (event) => {
     if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
-        sortOptions.classList.remove("show");
-        sortButton.setAttribute("aria-expanded", "false");
+      sortButton.setAttribute("aria-expanded", "false");
+      sortOptions.classList.remove("show");
     }
-});
+  });
+  
+  // Sélectionner une option
+  document.querySelectorAll(".custom-option").forEach((option) => {
+    option.addEventListener("click", () => {
+      document.querySelector(".selected-option").textContent = option.textContent;
+      sortButton.setAttribute("aria-expanded", "false");
+      sortOptions.classList.remove("show");
+      window.sortPhotographerMedia(option.dataset.value);
+    });
+  });
