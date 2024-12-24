@@ -7,10 +7,10 @@ function toggleDropdown() {
     const isExpanded = sortButton.getAttribute("aria-expanded") === "true";
     sortButton.setAttribute("aria-expanded", !isExpanded);
     sortOptions.classList.toggle("show");
+
     if (!isExpanded) {
         options[0].focus(); // Focus sur la première option
-    }
-    else {
+    } else {
         sortButton.focus();
     }
 }
@@ -41,7 +41,9 @@ function updateSelectedOption(option) {
 // Gérer les interactions clavier sur les options
 sortOptions.addEventListener("keydown", (event) => {
     if (!sortOptions.classList.contains("show")) return;
+
     const currentIndex = options.indexOf(document.activeElement);
+
     switch (event.key) {
         case "ArrowDown": {
             event.preventDefault();
@@ -60,8 +62,11 @@ sortOptions.addEventListener("keydown", (event) => {
             updateSelectedOption(document.activeElement);
             break;
         case "Escape":
+            event.preventDefault();
             toggleDropdown();
             sortButton.focus();
+            break;
+        default:
             break;
     }
 });
@@ -77,12 +82,14 @@ options.forEach((option) => {
 // Gérer le clic sur le bouton de tri
 sortButton.addEventListener("click", toggleDropdown);
 
+// Fermer la liste déroulante lorsque l'utilisateur clique à l'extérieur
 document.addEventListener("click", (event) => {
     if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
-      sortButton.setAttribute("aria-expanded", "false");
-      sortOptions.classList.remove("show");
+        sortButton.setAttribute("aria-expanded", "false");
+        sortOptions.classList.remove("show");
     }
-  });
+});
+
   
   // Sélectionner une option
   document.querySelectorAll(".custom-option").forEach((option) => {
