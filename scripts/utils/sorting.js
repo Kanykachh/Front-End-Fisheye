@@ -10,6 +10,9 @@ function toggleDropdown() {
     if (!isExpanded) {
         options[0].focus(); // Focus sur la première option
     }
+    else {
+        sortButton.focus();
+    }
 }
 
 // Fonction pour mettre à jour l'option sélectionnée
@@ -37,6 +40,7 @@ function updateSelectedOption(option) {
 
 // Gérer les interactions clavier sur les options
 sortOptions.addEventListener("keydown", (event) => {
+    if (!sortOptions.classList.contains("show")) return;
     const currentIndex = options.indexOf(document.activeElement);
     switch (event.key) {
         case "ArrowDown": {
