@@ -4,7 +4,6 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-
 }
 
 main {
@@ -12,8 +11,6 @@ main {
     margin: 0;
     padding: 0;
 }
-
-
 
 .bground {
     position: fixed; /* Place l’arrière-plan au-dessus des autres éléments */
@@ -26,19 +23,17 @@ main {
     display: none; /* Par défaut, caché */
 }
 
-
 .photograph-header {
     background-color: #FAFAFA;
     box-sizing: border-box; 
     padding: 1rem;
     margin: 2rem;
 }
+
 .header-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
- 
 }
 
 .photograph-header-left {
@@ -47,13 +42,15 @@ main {
     justify-content: flex-start;
     flex-direction: column;
 }
+
 .photograph-header-h1 {
     color: #D3573C;
     font-size: 3rem;
     margin-bottom: 0;
 }
+
 .photograph-header-left .location {
-    margin: 0; /* Correct: les marges doivent inclure une unité */
+    margin: 0;
     color: #901C1C;
     font-size: 22px;
 }
@@ -63,13 +60,11 @@ main {
     color: #757575;
 }
 
-
 .photograph-header-img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    
 }
 
 .logo {
@@ -88,9 +83,8 @@ main {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    
-   
 }
+
 #contact_modal {
     display: none;
     position: fixed;
@@ -103,31 +97,29 @@ main {
     max-height: 85%; /* Limite la hauteur de la modale */
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    overflow-y: auto; /* Permet un défilement vertical si le contenu dépasse */
-    margin-top: none;
+    overflow-y: auto;
 }
 
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 40%; /* Réduit la largeur */
-    max-height: 100%; /* Limite la hauteur de la modale */
+    width: 40%;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alignement vertical ajusté */
+    justify-content: flex-start;
     padding: 25px;
     margin: auto;
-    overflow-y: auto; /* Permet un défilement vertical si nécessaire */
-    padding-top: none;
+    overflow-y: auto;
 }
-.modal_content{
+
+.modal_content {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    margin-top: none;
-  
 }
+
 .close_button {
     position: absolute;
     right: 1px;
@@ -141,27 +133,25 @@ main {
     background-color: #DB8876;
     font-size: 80px;
     border: none;
-  }
-
+}
 
 .modal header {
     display: flex;
     align-items: flex-start;
-    
 }
-.header-modal{
+
+.header-modal {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-  
 }
 
 .modal header h2 {
     font-size: 45px;
     font-weight: normal;
-    
 }
-.button-console{
+
+.button-console {
     font-size: 15px;
     color: white;
     padding: 11px;
@@ -181,49 +171,55 @@ main {
     margin-right: 2rem;
     margin-top: 4rem;
 }
+
 .media-article {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
 }
+
 .media-info {
     display: flex;
     align-items: center;
     width: 400px;
     justify-content: space-between;
-    
 }
+
 .media-title {
     color: #901C1C;
     font-size: 22px;
     display: flex;
-   
 }
+
 .heart-icon {
-    color: #b40000; /* Rouge comme sur votre image */
-    font-size: 16px; /* Ajustez selon vos besoins */
-    margin-left: 5px; /* Espace entre le nombre et le cœur */
-    cursor: pointer; /* Change le curseur en main */
+    color: #b40000;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
     transition: transform 0.2s;
 }
+
 .heart-icon:hover {
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
-.media-likes{
+
+.media-likes {
     color: #b40000;
     display: flex;
     margin-left: 150px;
 }
+
 .media-image {
     object-fit: cover;
-    Width: 400px;
-    Height: 351px;
+    width: 400px;
+    height: 351px;
     border-radius: 5px;
 }
+
 .media-video {
-    Width: 400px;
-    Height: 351px;
+    width: 400px;
+    height: 351px;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -231,8 +227,8 @@ main {
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
-   
 }
+
 form {
     display: flex;
     width: 100%;
@@ -251,7 +247,6 @@ form div {
     width: 100%;
     align-items: self-start;
     margin-bottom: 10px;
-    margin-top: 0;
 }
 
 form input {
@@ -260,6 +255,7 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
 form textarea {
     width: 100%;
     height: 120px; 
@@ -268,8 +264,9 @@ form textarea {
     resize: none;
     border: none; 
 }
+
 .lightbox-media {
-   display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     position: fixed;
@@ -281,14 +278,13 @@ form textarea {
     z-index: 10;
     justify-content: center;
     overflow: hidden;
-    
 }
 
 .lightbox-image, .lightbox-video {
-    max-width: 80%; /* Occuper un maximum de l'espace disponible */
-    max-height: 80%; /* Respecter la hauteur disponible */
-    border-radius: 5px; /* Coins arrondis */
-    margin-bottom: 20px; /* Espacement en bas */
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 5px;
+    margin-bottom: 20px;
     object-fit: cover;
 }
 
@@ -299,55 +295,32 @@ form textarea {
     color: #b40000;
     font-size: 2.5rem;
     cursor: pointer;
-    z-index: 20; /* Pour les afficher au-dessus du média */
+    z-index: 20;
 }
 
 .prev-button {
-    left: 5%; /* Positionner sur la gauche */
-    top: 50%; /* Centrer verticalement */
+    left: 5%;
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .next-button {
-    right: 5%; /* Positionner sur la droite */
-    top: 50%; /* Centrer verticalement */
+    right: 5%;
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .close-button {
     top: 2%;
     right: 2%;
-    transform: none;
 }
 
-/* Titre du média en bas */
 .lightbox-title {
     color: #b40000;
     font-size: 1.5rem;
     margin-top: 10px;  
 }
-.bground-light {
-    display: none; /* Masqué par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 10;
-}
-.lightbox {
-    display: none; /* Masqué par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 20;
-    justify-content: center;
-    align-items: center;
-}
+
 .total-likes-container {
     position: fixed;
     bottom: 0px;
@@ -364,7 +337,7 @@ form textarea {
     font-size: 24px;
     font-weight: bold;
     margin-right: 10px;
-    color: black
+    color: black;
 }
 
 .daily-rate {
@@ -373,14 +346,13 @@ form textarea {
     margin-left: 30px;
     font-weight: bold;
 }
-/* Style pour le conteneur */
+
 .sorting-container {
     margin: 20px 2rem;
     display: flex;
     align-items: center;
 }
 
-/* Label de tri */
 .sorting-label {
     font-size: 15px;
     margin-right: 10px;
@@ -388,12 +360,10 @@ form textarea {
     font-weight: bold;
 }
 
-/* Bouton de tri */
 .custom-select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 160px; /* Réduit la taille du bouton */
     padding: 10px 15px;
     font-size: 16px;
     color: white;
@@ -408,21 +378,19 @@ form textarea {
     outline: 2px solid #D3573C;
 }
 
-/* Icône de flèche */
 .arrow {
     font-size: 12px;
     color: white;
 }
 
-/* Liste déroulante */
 .custom-options {
     display: none;
     position: absolute;
     background-color: #901C1C;
-    width: 160px; /* Largeur égale au bouton */
+    width: 160px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    margin-top: 5px; /* Petit espace entre le bouton et la liste */
+    margin-top: 5px;
     z-index: 100;
 }
 
@@ -441,69 +409,9 @@ form textarea {
     color: white;
 }
 
-.show {
-    display: block;
-}
-
-
-/* Wrapper pour la liste déroulante personnalisée */
 .custom-select-wrapper {
     position: relative;
     width: 200px;
-}
-
-.custom-select {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: normal;
-    color: white;
-    background-color: #901C1C;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: left;
-}
-
-.custom-select:focus {
-    outline: 2px solid #D3573C;
-}
-
-.arrow {
-    font-size: 12px;
-    color: white;
-}
-
-.sorting-container {
-    margin: 20px 2rem;
-    display: flex;
-    align-items: center;
-}
-
-.sorting-label {
-    font-size: 15px;
-    margin-right: 10px;
-    color: black;
-    font-weight: bold;
-}
-
-.dropbtn {
-    background-color: #901C1C;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    outline: none;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #B40000;
 }
 
 .dropdown-content {
@@ -537,27 +445,4 @@ form textarea {
 
 .show {
     display: block;
-}
-.custom-options {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: #901C1C;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.custom-option {
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    border-bottom: 1px solid white;
-}
-
-.custom-option:hover,
-.custom-option[aria-selected="true"] {
-    background-color: #B40000;
-    color: white;
 }
