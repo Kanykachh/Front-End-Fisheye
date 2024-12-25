@@ -4,29 +4,24 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
 }
-
 main {
     width: 100%;
     margin: 0;
     padding: 0;
 }
-
-
-
 .bground {
-    position: fixed; /* Place l’arrière-plan au-dessus des autres éléments */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Ajoute un effet foncé transparent */
-    z-index: 999; /* Doit être juste en dessous de la modale */
-    display: none; /* Par défaut, caché */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+    display: none; 
 }
-
-
 .photograph-header {
     background-color: #FAFAFA;
     box-sizing: border-box; 
@@ -37,10 +32,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
- 
 }
-
 .photograph-header-left {
     margin-left: 1rem;
     display: flex;
@@ -57,26 +49,20 @@ main {
     color: #901C1C;
     font-size: 22px;
 }
-
 .photograph-header-left .photograph-header-tagline {
     margin: 0;
     color: #757575;
 }
-
-
 .photograph-header-img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    
 }
-
-.logo {
+.ogo {
     height: 50px;
     margin-left: 100px;
 }
-
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -88,8 +74,6 @@ main {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    
-   
 }
 #contact_modal {
     display: none;
@@ -99,34 +83,29 @@ main {
     transform: translate(-50%, -50%);
     z-index: 1000;
     background-color: #DB8876;
-    width: 40%; /* Réduit la largeur */
-    max-height: 85%; /* Limite la hauteur de la modale */
+    width: 40%; 
+    max-height: 85%; 
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    overflow-y: auto; /* Permet un défilement vertical si le contenu dépasse */
-    
+    overflow-y: auto; 
 }
-
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 40%; /* Réduit la largeur */
-    max-height: 100%; /* Limite la hauteur de la modale */
+    width: 40%; 
+    max-height: 100%; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alignement vertical ajusté */
+    justify-content: flex-start; 
     padding: 25px;
     margin: auto;
-    overflow-y: auto; /* Permet un défilement vertical si nécessaire */
-   
+    overflow-y: auto; 
 }
 .modal_content{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-   
-  
 }
 .close_button {
     position: absolute;
@@ -142,24 +121,18 @@ main {
     font-size: 80px;
     border: none;
   }
-
-
 .modal header {
     display: flex;
     align-items: flex-start;
-    
 }
 .header-modal{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-  
 }
-
 .modal header h2 {
     font-size: 45px;
     font-weight: normal;
-    
 }
 .button-console{
     font-size: 15px;
@@ -172,7 +145,6 @@ main {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .photographer-media {
     display: flex;
     flex-wrap: wrap;
@@ -192,13 +164,11 @@ main {
     align-items: center;
     width: 400px;
     justify-content: space-between;
-    
 }
 .media-title {
     color: #901C1C;
     font-size: 22px;
     display: flex;
-   
 }
 .heart-icon {
     color: #b40000; /* Rouge comme sur votre image */
@@ -227,24 +197,16 @@ main {
     object-fit: cover;
     border-radius: 5px;
 }
-
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
-   
-}
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
-
 form label {
     color: #312E2E;
     font-size: 25px;
 }
-
 form div {
     display: flex;
     flex-direction: column;
@@ -253,7 +215,6 @@ form div {
     margin-bottom: 10px;
     margin-top: 0;
 }
-
 form input {
     width: 100%;
     height: 45px;
@@ -281,17 +242,14 @@ form textarea {
     z-index: 10;
     justify-content: center;
     overflow: hidden;
-    
 }
-
 .lightbox-image, .lightbox-video {
-    max-width: 80%; /* Occuper un maximum de l'espace disponible */
-    max-height: 80%; /* Respecter la hauteur disponible */
-    border-radius: 5px; /* Coins arrondis */
-    margin-bottom: 20px; /* Espacement en bas */
+    max-width: 80%; 
+    max-height: 80%; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
     object-fit: cover;
 }
-
 .prev-button, .next-button, .close-button {
     position: absolute;
     background: transparent;
@@ -299,35 +257,30 @@ form textarea {
     color: #b40000;
     font-size: 2.5rem;
     cursor: pointer;
-    z-index: 20; /* Pour les afficher au-dessus du média */
+    z-index: 20; 
 }
-
 .prev-button {
-    left: 5%; /* Positionner sur la gauche */
-    top: 50%; /* Centrer verticalement */
+    left: 5%; 
+    top: 50%; 
     transform: translateY(-50%);
 }
-
 .next-button {
-    right: 5%; /* Positionner sur la droite */
-    top: 50%; /* Centrer verticalement */
+    right: 5%; 
+    top: 50%; 
     transform: translateY(-50%);
 }
-
 .close-button {
     top: 2%;
     right: 2%;
     transform: none;
 }
-
-/* Titre du média en bas */
 .lightbox-title {
     color: #b40000;
     font-size: 1.5rem;
     margin-top: 10px;  
 }
 .bground-light {
-    display: none; /* Masqué par défaut */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -337,7 +290,7 @@ form textarea {
     z-index: 10;
 }
 .lightbox {
-    display: none; /* Masqué par défaut */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -359,27 +312,23 @@ form textarea {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
 }
-
 .total-likes {
     font-size: 24px;
     font-weight: bold;
     margin-right: 10px;
     color: black
 }
-
 .daily-rate {
     font-size: 18px;
     color: black;
     margin-left: 30px;
     font-weight: bold;
 }
-/* Style pour le conteneur */
 .sorting-container {
     margin: 20px 2rem;
     display: flex;
     align-items: center;
 }
-
 /* Label de tri */
 .sorting-label {
     font-size: 15px;
@@ -387,7 +336,6 @@ form textarea {
     color: black;
     font-weight: bold;
 }
-
 /* Bouton de tri */
 .custom-select {
     display: flex;
@@ -402,17 +350,14 @@ form textarea {
     cursor: pointer;
     text-align: left;
 }
-
 .custom-select:focus {
     outline: 2px solid #D3573C;
 }
-
 /* Icône de flèche */
 .arrow {
     font-size: 12px;
     color: white;
 }
-
 /* Liste déroulante */
 .custom-options {
     display: none;
@@ -424,7 +369,6 @@ form textarea {
     margin-top: 5px; /* Petit espace entre le bouton et la liste */
     z-index: 100;
 }
-
 .custom-option {
     padding: 10px 15px;
     font-size: 16px;
@@ -433,24 +377,19 @@ form textarea {
     cursor: pointer;
     border-bottom: 1px solid white;
 }
-
 .custom-option:hover,
 .custom-option[aria-selected="true"] {
     background-color: #B40000;
     color: white;
 }
-
 .show {
     display: block;
 }
-
-
 /* Wrapper pour la liste déroulante personnalisée */
 .custom-select-wrapper {
     position: relative;
     width: 200px;
 }
-
 .custom-select {
     display: flex;
     justify-content: space-between;
@@ -465,29 +404,24 @@ form textarea {
     cursor: pointer;
     text-align: left;
 }
-
 .custom-select:focus {
     outline: 2px solid #D3573C;
 }
-
 .arrow {
     font-size: 12px;
     color: white;
 }
-
 .sorting-container {
     margin: 20px 2rem;
     display: flex;
     align-items: center;
 }
-
 .sorting-label {
     font-size: 15px;
     margin-right: 10px;
     color: black;
     font-weight: bold;
 }
-
 .dropbtn {
     background-color: #901C1C;
     color: white;
@@ -503,7 +437,6 @@ form textarea {
 .dropbtn:hover, .dropbtn:focus {
     background-color: #B40000;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -513,7 +446,6 @@ form textarea {
     z-index: 1;
     border-radius: 5px;
 }
-
 .dropdown-content .custom-option {
     color: white;
     padding: 10px 15px;
@@ -521,18 +453,15 @@ form textarea {
     display: block;
     font-size: 16px;
 }
-
 .dropdown-content .custom-option:hover,
 .dropdown-content .custom-option:focus {
     background-color: #B40000;
     outline: 2px solid white;
 }
-
 .dropdown-content .custom-option[aria-selected="true"] {
     background-color: #D3573C;
     font-weight: bold;
 }
-
 .show {
     display: block;
 }
@@ -544,7 +473,6 @@ form textarea {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 .custom-option {
     padding: 10px 15px;
     font-size: 16px;
@@ -553,7 +481,6 @@ form textarea {
     cursor: pointer;
     border-bottom: 1px solid white;
 }
-
 .custom-option:hover,
 .custom-option[aria-selected="true"] {
     background-color: #B40000;

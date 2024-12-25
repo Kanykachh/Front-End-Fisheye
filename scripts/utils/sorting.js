@@ -9,19 +9,15 @@ function toggleDropdown() {
     sortOptions.classList.toggle("show");
 
     if (!isExpanded) {
-        options[0].focus(); // Focus sur la première option
+        options[0].focus();
     } else {
         sortButton.focus();
     }
 }
-
 // Fonction pour mettre à jour l'option sélectionnée
 function updateSelectedOption(option) {
     const selectedValue = option.dataset.value;
-
-    // Met à jour l'élément sélectionné
     document.querySelector(".selected-option").textContent = option.textContent;
-
     options.forEach((opt) => {
         opt.classList.remove("selected");
         opt.setAttribute("aria-selected", "false");
@@ -30,10 +26,7 @@ function updateSelectedOption(option) {
     option.classList.add("selected");
     option.setAttribute("aria-selected", "true");
 
-    // Appeler la fonction de tri
     window.sortPhotographerMedia(selectedValue);
-
-    // Ferme le menu et restaure le focus
     toggleDropdown();
     sortButton.focus();
 }
