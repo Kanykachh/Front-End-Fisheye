@@ -16,14 +16,12 @@ async function getPhotographerById(id) {
     return null;
   }
 }
-
 // Fonction pour récupérer l'ID du photographe depuis l'URL
 function getPhotographerId() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   return id ? parseInt(id, 10) : null;
 }
-
 // Fonction pour afficher les informations du photographe
 async function displayPhotographer(photographerData) {
   if (photographerData) {
@@ -48,11 +46,9 @@ async function displayPhotographer(photographerData) {
   }
   return null;
 }
-
 // Variable pour stocker les médias localement (pas globale)
 let photographerMediaArray = [];
 window.photographerMediaArray = photographerMediaArray;
-
 // Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
   if (!photographerMedia || photographerMedia.length === 0) {
