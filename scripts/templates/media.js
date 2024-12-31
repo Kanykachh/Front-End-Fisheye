@@ -1,4 +1,5 @@
 (function () {
+    const { createImageElement, createTextElement, createVideoElement, createSpanElement } = window;
     function mediaFactory(mediaData) {
       const { title, likes, photographerId, image, video } = mediaData;
       const mediaPath = `assets/images/media/${photographerId}/${image || video}`;
