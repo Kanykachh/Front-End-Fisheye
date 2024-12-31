@@ -50,6 +50,7 @@ async function displayPhotographer(photographerData) {
 let photographerMediaArray = [];
 window.photographerMediaArray = photographerMediaArray;
 // Fonction pour afficher les médias du photographe
+a// Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
   if (!photographerMedia || photographerMedia.length === 0) {
     console.error("Aucun média trouvé pour ce photographe.");
@@ -60,19 +61,20 @@ async function displayPhotographerMedia(photographerMedia) {
   mediaContainer.innerHTML = "";
 
   photographerMedia.forEach((mediaItem, index) => {
-    const mediaArticle = mediaTemplate(mediaItem, index);
+    // Utilisation de la factory pour créer un média
+    const mediaModel = mediaFactory(mediaItem);
+    const mediaArticle = mediaModel.getMediaDOM(index);
 
     mediaArticle.addEventListener("click", () => {
-      console.log(`Média cliqué : ${mediaItem.title}, Index : ${index}`);
       displayLightBox(index, photographerMedia);
     });
 
     mediaContainer.appendChild(mediaArticle);
   });
 
-  console.log(`Médias affichés : ${photographerMedia.length}`);
   localUpdateTotalLikes();
 }
+
 
 // Fonction pour mettre à jour le total des likes
 function localUpdateTotalLikes() {
