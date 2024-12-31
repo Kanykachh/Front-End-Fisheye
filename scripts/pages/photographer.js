@@ -50,7 +50,6 @@ async function displayPhotographer(photographerData) {
 let photographerMediaArray = [];
 window.photographerMediaArray = photographerMediaArray;
 // Fonction pour afficher les médias du photographe
-// Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
   if (!photographerMedia || photographerMedia.length === 0) {
     console.error("Aucun média trouvé pour ce photographe.");
