@@ -85,7 +85,9 @@
   // Rendre les fonctions accessibles si nécessaire
   window.photographerTemplate = photographerTemplate;
   window.createImageElement = createImageElement;
+  window.createTextElement = createTextElement;
   window.createVideoElement = createVideoElement;
+  window.createSpanElement = createSpanElement;
 
   
 })();
