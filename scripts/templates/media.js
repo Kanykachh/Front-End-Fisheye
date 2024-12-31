@@ -69,7 +69,6 @@
       return { getMediaDOM };
     }
   
-    // Rendre la factory accessible globalement
     window.mediaFactory = mediaFactory;
   })();
   

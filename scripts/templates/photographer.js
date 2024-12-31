@@ -79,10 +79,7 @@
 
     return { getUserCardDOM, getPhotographerHeaderDOM };
   }
-
- 
-
-  // Rendre les fonctions accessibles si nécessaire
+  
   window.photographerTemplate = photographerTemplate;
   window.createImageElement = createImageElement;
   window.createTextElement = createTextElement;
