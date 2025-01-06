@@ -1,12 +1,12 @@
 (function () {
     const { createImageElement, createTextElement, createVideoElement, createSpanElement } = window;
-    function mediaFactory(mediaData) {
+    function mediaFactory(mediaData, index) {
       const { title, likes, photographerId, image, video } = mediaData;
       const mediaPath = `assets/images/media/${photographerId}/${image || video}`;
       const isImage = !!image;
   
      
-      function getMediaDOM(index) {
+      function getMediaDOM() {
         const article = document.createElement("article");
         article.classList.add("media-article");
         article.setAttribute("data-index", index);
