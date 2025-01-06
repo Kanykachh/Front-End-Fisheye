@@ -1,6 +1,10 @@
 (function () {
     const { createImageElement, createTextElement, createVideoElement, createSpanElement } = window;
     function mediaFactory(mediaData, index) {
+      if (!mediaData || typeof index === "undefined") {
+        console.error("mediaData ou index invalide dans mediaFactory :", mediaData, index);
+        return;
+      }
       const { title, likes, photographerId, image, video } = mediaData;
       const mediaPath = `assets/images/media/${photographerId}/${image || video}`;
       const isImage = !!image;
