@@ -3,6 +3,11 @@
   let currentMediaArray = []; // Variable locale pour stocker les médias affichés dans la LightBox
 
   function displayLightBox(index, array) {
+
+    if (!array || index < 0 || index >= array.length) {
+      console.error("Index ou tableau invalide dans displayLightBox :", index, array);
+      return;
+    }
     const lightBox = document.getElementById("light_box");
     const backGroundLight = document.querySelector(".bground-light");
     const lightBoxMedia = document.getElementById("lightbox-media");
