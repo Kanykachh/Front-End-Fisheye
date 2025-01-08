@@ -61,7 +61,7 @@ async function displayPhotographerMedia(photographerMedia) {
 
   photographerMedia.forEach((mediaItem, index) => {
     // Utilisation de la factory pour créer un média
-    const mediaModel = mediaFactory(mediaItem, index);
+    const mediaModel = mediaFactory(mediaItem, index, photographerMedia);
     const mediaArticle = mediaModel.getMediaDOM(index);
 
     mediaArticle.addEventListener("click", () => {

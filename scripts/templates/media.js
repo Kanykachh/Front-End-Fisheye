@@ -1,6 +1,6 @@
 (function () {
     const { createImageElement, createTextElement, createVideoElement, createSpanElement } = window;
-    function mediaFactory(mediaData, index) {
+    function mediaFactory(mediaData, index, photographerMediaArray) {
       if (!mediaData || typeof index === "undefined") {
         console.error("mediaData ou index invalide dans mediaFactory :", mediaData, index);
         return;
@@ -62,7 +62,7 @@
             console.log("photographerMediaArray dans media.js :", window.photographerMediaArray);
         
             if (window.photographerMediaArray && window.photographerMediaArray.length > 0) {
-              displayLightBox(index, window.photographerMediaArray);
+              displayLightBox(index, photographerMediaArray);
             } else {
               console.error("photographerMediaArray est vide ou non défini.");
             }
