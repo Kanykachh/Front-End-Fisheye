@@ -108,14 +108,34 @@ function sortPhotographerMedia(criteria) {
 async function init() {
   const photographerId = getPhotographerId();
   const photographerData = await getPhotographerById(photographerId);
+
   if (photographerData) {
     await displayPhotographer(photographerData);
     await displayPhotographerMedia(photographerData.media);
+
+    // Assurez-vous que les événements clavier sont ajoutés après la mise à jour
+    const mediaArticles = document.querySelectorAll(".media-article");
+    mediaArticles.forEach((article, index) => {
+      article.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          console.log("Événement clavier détecté. Index :", index);
+          console.log("photographerMediaArray dans init() :", photographerMediaArray);
+
+          if (photographerMediaArray && photographerMediaArray.length > 0) {
+            displayLightBox(index, photographerMediaArray);
+          } else {
+            console.error("photographerMediaArray est vide ou non défini.");
+          }
+        }
+      });
+    });
+
     sortPhotographerMedia("popularity");
   } else {
     console.error("Photographe non trouvé.");
   }
-};
+}
 
 // Exposez les fonctions globalement
 window.localUpdateTotalLikes = localUpdateTotalLikes;
