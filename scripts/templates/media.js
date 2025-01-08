@@ -58,9 +58,17 @@
         article.addEventListener("keydown", (event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
-            displayLightBox(index, window.photographerMediaArray);
+            console.log("Événement clavier détecté. Index :", index);
+            console.log("photographerMediaArray dans media.js :", window.photographerMediaArray);
+        
+            if (window.photographerMediaArray && window.photographerMediaArray.length > 0) {
+              displayLightBox(index, window.photographerMediaArray);
+            } else {
+              console.error("photographerMediaArray est vide ou non défini.");
+            }
           }
         });
+        
   
         const mediaInfo = document.createElement("div");
         mediaInfo.classList.add("media-info");
