@@ -61,7 +61,7 @@
             console.log("Événement clavier détecté. Index :", index);
             console.log("photographerMediaArray dans media.js :", window.photographerMediaArray);
         
-            if (window.photographerMediaArray && window.photographerMediaArray.length > 0) {
+            if (photographerMediaArray && photographerMediaArray.length > 0) {
               displayLightBox(index, photographerMediaArray);
             } else {
               console.error("photographerMediaArray est vide ou non défini.");
