@@ -67,7 +67,7 @@
   document.addEventListener("keydown", (event) => {
     const lightBox = document.getElementById("light_box");
     if (lightBox.style.display !== "flex") return;
-    if (!window.photographerMediaArray || window.photographerMediaArray.length === 0) {
+    if (!photographerMediaArray || photographerMediaArray.length === 0) {
       console.error("photographerMediaArray est vide lors de l'appui sur Entrée.");
       return;
     }
