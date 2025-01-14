@@ -59,7 +59,7 @@
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
             console.log("Événement clavier détecté. Index :", index);
-            console.log("photographerMediaArray dans media.js :", window.photographerMediaArray);
+            console.log("photographerMediaArray dans media.js :", photographerMediaArray);
         
             if (photographerMediaArray && photographerMediaArray.length > 0) {
               displayLightBox(index, photographerMediaArray);
