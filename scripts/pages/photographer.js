@@ -1,4 +1,3 @@
-// Fonction pour récupérer les données des photographes
 async function getPhotographerById(id) {
   if (!id) {
     console.error("ID de photographe non fourni.");
@@ -16,17 +15,15 @@ async function getPhotographerById(id) {
     return null;
   }
 }
-// Fonction pour récupérer l'ID du photographe depuis l'URL
 function getPhotographerId() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   return id ? parseInt(id, 10) : null;
 }
-// Fonction pour afficher les informations du photographe
 async function displayPhotographer(photographerData) {
   if (photographerData) {
     const photographerSection = document.querySelector(".photograph-header");
-    photographerSection.innerHTML = ""; // Vide le contenu actuel
+    photographerSection.innerHTML = ""; 
     const photographerModel = photographerTemplate(photographerData);
 
     const photographerHeaderDOM = photographerModel.getPhotographerHeaderDOM();
@@ -49,7 +46,6 @@ async function displayPhotographer(photographerData) {
 // Variable pour stocker les médias localement (pas globale)
 let photographerMediaArray = [];
 window.photographerMediaArray = photographerMediaArray;
-// Fonction pour afficher les médias du photographe
 async function displayPhotographerMedia(photographerMedia) {
   if (!photographerMedia || photographerMedia.length === 0) {
     console.error("Aucun média trouvé pour ce photographe.");
@@ -58,24 +54,18 @@ async function displayPhotographerMedia(photographerMedia) {
   photographerMediaArray = photographerMedia;
   const mediaContainer = document.querySelector(".photographer-media");
   mediaContainer.innerHTML = "";
-
   photographerMedia.forEach((mediaItem, index) => {
-    // Utilisation de la factory pour créer un média
     const mediaModel = window.mediaFactory(mediaItem, index, photographerMedia);
     const mediaArticle = mediaModel.getMediaDOM(index);
-
     mediaArticle.addEventListener("click", () => {
       displayLightBox(index, photographerMedia);
     });
-
     mediaContainer.appendChild(mediaArticle);
   });
 
   localUpdateTotalLikes();
 }
 
-
-// Fonction pour mettre à jour le total des likes
 function localUpdateTotalLikes() {
   const totalLikes = photographerMediaArray.reduce((sum, media) => sum + media.likes, 0);
   const totalLikesElement = document.querySelector(".total-likes");
@@ -87,14 +77,12 @@ function localUpdateTotalLikes() {
   }
 }
 
-// Mappage des critères de tri à leurs fonctions de comparaison
 const sortFunctions = {
   popularity: (a, b) => b.likes - a.likes,
   date: (a, b) => new Date(b.date) - new Date(a.date),
   title: (a, b) => a.title.localeCompare(b.title),
 };
 
-// Fonction pour trier les médias
 function sortPhotographerMedia(criteria) {
   if (!sortFunctions[criteria]) {
     console.error("Critère de tri non valide :", criteria);
@@ -104,7 +92,6 @@ function sortPhotographerMedia(criteria) {
   displayPhotographerMedia(photographerMediaArray);
 }
 
-// Fonction d'initialisation
 async function init() {
   const photographerId = getPhotographerId();
   const photographerData = await getPhotographerById(photographerId);
@@ -113,7 +100,6 @@ async function init() {
     await displayPhotographer(photographerData);
     await displayPhotographerMedia(photographerData.media);
 
-    // Assurez-vous que les événements clavier sont ajoutés après la mise à jour
     const mediaArticles = document.querySelectorAll(".media-article");
     mediaArticles.forEach((article, index) => {
       article.addEventListener("keydown", (event) => {
@@ -137,9 +123,7 @@ async function init() {
   }
 }
 
-// Exposez les fonctions globalement
 window.localUpdateTotalLikes = localUpdateTotalLikes;
 window.sortPhotographerMedia = sortPhotographerMedia;
 
-// Appel de la fonction d'initialisation
 init();

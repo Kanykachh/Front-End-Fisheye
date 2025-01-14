@@ -51,7 +51,6 @@
     });
   }
 
-  // Exposition globale
   window.displayModal = displayModal;
   window.closeModal = closeModal;
   window.initModal = initModal;
