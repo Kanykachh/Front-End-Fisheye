@@ -2,7 +2,7 @@ const sortButton = document.getElementById("sort-button");
 const sortOptions = document.getElementById("sort-options");
 const options = Array.from(document.querySelectorAll(".custom-option"));
 
-// Fonction pour ouvrir/fermer le menu
+
 function toggleDropdown() {
     const isExpanded = sortButton.getAttribute("aria-expanded") === "true";
     sortButton.setAttribute("aria-expanded", !isExpanded);
@@ -14,7 +14,7 @@ function toggleDropdown() {
         sortButton.focus();
     }
 }
-// Fonction pour mettre à jour l'option sélectionnée
+
 function updateSelectedOption(option) {
     const selectedValue = option.dataset.value;
     document.querySelector(".selected-option").textContent = option.textContent;
@@ -31,7 +31,6 @@ function updateSelectedOption(option) {
     sortButton.focus();
 }
 
-// Gérer les interactions clavier sur les options
 sortOptions.addEventListener("keydown", (event) => {
     if (!sortOptions.classList.contains("show")) return;
 
@@ -64,7 +63,7 @@ sortOptions.addEventListener("keydown", (event) => {
     }
 });
 
-// Gérer les clics sur les options
+
 options.forEach((option) => {
     option.addEventListener("click", (event) => {
         event.preventDefault();
@@ -72,10 +71,8 @@ options.forEach((option) => {
     });
 });
 
-// Gérer le clic sur le bouton de tri
 sortButton.addEventListener("click", toggleDropdown);
 
-// Fermer la liste déroulante lorsque l'utilisateur clique à l'extérieur
 document.addEventListener("click", (event) => {
     if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
         sortButton.setAttribute("aria-expanded", "false");
@@ -84,7 +81,6 @@ document.addEventListener("click", (event) => {
 });
 
   
-  // Sélectionner une option
   document.querySelectorAll(".custom-option").forEach((option) => {
     option.addEventListener("click", () => {
       document.querySelector(".selected-option").textContent = option.textContent;
