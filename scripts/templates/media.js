@@ -51,6 +51,7 @@
             likesElement.textContent = mediaData.likes;
             heartIcon.setAttribute("aria-label", `Vous avez ajouté un like à "${title}"`);
             window.localUpdateTotalLikes();
+            event.stopPropagation();
           }
         });
   
