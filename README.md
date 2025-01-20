@@ -3,4 +3,5 @@
 ## Démarrer le projet
 
 Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+et de suprimer les balises base des fichiers index et photographer.html pour faire fonctionner le site en local. 
 
