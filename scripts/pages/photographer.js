@@ -46,14 +46,18 @@ async function displayPhotographer(photographerData) {
 // Variable pour stocker les médias localement (pas globale)
 let photographerMediaArray = [];
 window.photographerMediaArray = photographerMediaArray;
+
 async function displayPhotographerMedia(photographerMedia) {
   if (!photographerMedia || photographerMedia.length === 0) {
     console.error("Aucun média trouvé pour ce photographe.");
     return;
   }
+
   photographerMediaArray = photographerMedia;
+  
   const mediaContainer = document.querySelector(".photographer-media");
   mediaContainer.innerHTML = "";
+
   photographerMedia.forEach((mediaItem, index) => {
     const mediaModel = window.mediaFactory(mediaItem, index, photographerMedia);
     const mediaArticle = mediaModel.getMediaDOM(index);
